@@ -90,6 +90,11 @@ def corners(w, h, inset, size, color, opacity=0.8):
     )
 
 
+def clip_width(chars, char):
+    # WebKit treats a zero-width clip rect as "no clip" and shows everything
+    return max(chars * char, 0.01)
+
+
 def typing_steps(n, start, step):
     """(time, chars) pairs that reveal n characters one at a time."""
     return [(start + k * step, k) for k in range(n + 1)]
@@ -97,7 +102,7 @@ def typing_steps(n, start, step):
 
 def discrete(attr, events, dur, value, begin="0s", repeat=True, freeze=False):
     times = ";".join(f"{t / dur:.5f}" for t, _ in events)
-    values = ";".join(f"{value(v):.1f}" for _, v in events)
+    values = ";".join(f"{value(v):.2f}" for _, v in events)
     extra = ' repeatCount="indefinite"' if repeat else ""
     extra += ' fill="freeze"' if freeze else ""
     return (
@@ -128,13 +133,17 @@ def hero(name, kicker, tagline, phrases, left_hud, right_hud):
         events += mine
         own = [(0.0, 0)] + mine
         clips.append(
-            f'<clipPath id="t{i}"><rect x="{tx:.1f}" y="{horizon - 70}" height="40" width="0">'
-            + discrete("width", own, cycle, lambda c: c * char)
+            f'<clipPath id="t{i}"><rect x="{tx:.1f}" y="{horizon - 70}" height="40" width="{clip_width(0 if i else n, char):.2f}">'
+            + discrete("width", own, cycle, lambda c: clip_width(c, char))
             + "</rect></clipPath>"
         )
+        # only the phrase in its own slot is ever visible, even if clipping misbehaves
+        shown = [(0.0, 0), (start, 1), (start + slot, 0)] if i else [(0.0, 1), (slot, 0)]
         texts.append(
-            f'<text x="{tx:.1f}" y="{horizon - 43}" clip-path="url(#t{i})" fill="{CYAN}" '
-            f'font-family="{MONO}" font-size="{size}">{esc(phrase)}</text>'
+            f'<text x="{tx:.1f}" y="{horizon - 43}" clip-path="url(#t{i})" fill="{CYAN}" opacity="{0 if i else 1}" '
+            f'font-family="{MONO}" font-size="{size}">{esc(phrase)}'
+            + discrete("opacity", shown, cycle, float)
+            + "</text>"
         )
     timeline = sorted(events)
     cursor = (
@@ -242,8 +251,8 @@ def terminal(session, title):
         cx = px + mono_width(prompt, size)
         steps = typing_steps(len(cmd), 0, 0.035)
         defs.append(
-            f'<clipPath id="c{i}"><rect x="{cx:.1f}" y="{y - 22}" height="30" width="0">'
-            + discrete("width", steps, steps[-1][0] + 0.01, lambda c: c * char, begin=f"{t:.2f}s", repeat=False, freeze=True)
+            f'<clipPath id="c{i}"><rect x="{cx:.1f}" y="{y - 22}" height="30" width="0.01">'
+            + discrete("width", steps, steps[-1][0] + 0.01, lambda c: clip_width(c, char), begin=f"{t:.2f}s", repeat=False, freeze=True)
             + "</rect></clipPath>"
         )
         body.append(
