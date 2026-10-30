@@ -4,8 +4,10 @@
 
 <a href="https://sharvilprabhudesai.com"><img src="assets/buttons/portfolio.svg" width="23%" alt="Portfolio"></a>
 <a href="https://www.linkedin.com/in/sharvil-prabhudesai"><img src="assets/buttons/linkedin.svg" width="23%" alt="LinkedIn"></a>
-<a href="mailto:sharvilprabhudesai15@gmail.com"><img src="assets/buttons/email.svg" width="23%" alt="Email"></a>
+<a href="https://sharvilprabhudesai.com/#contact"><img src="assets/buttons/email.svg" width="23%" alt="Email"></a>
 <a href="https://sharvilprabhudesai.com/Sharvil-Prabhudesai-CV.pdf"><img src="assets/buttons/cv.svg" width="23%" alt="Résumé"></a>
+
+<sub>✉️ <code>sharvilprabhudesai15@gmail.com</code></sub>
 
 </div>
 
@@ -54,4 +56,4 @@
 
 <p align="center"><sub>📄 <a href="https://doi.org/10.1109/IDCIoT59759.2024.10467802"><i>Survey on Recommendation System Combining Hybrid and Popularity Based Approach</i></a> — IEEE IDCIoT 2024<br>🏅 Best Student Award, 2024 graduating cohort · Second rank in third and final year</sub></p>
 
-<a href="mailto:sharvilprabhudesai15@gmail.com"><img src="assets/footer.svg" width="100%" alt="End of transmission — let's build something that actually works."></a>
+<a href="https://sharvilprabhudesai.com/#contact"><img src="assets/footer.svg" width="100%" alt="End of transmission — let's build something that actually works."></a>
