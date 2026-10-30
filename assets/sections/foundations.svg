@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="76" viewBox="0 0 1200 76" role="img" aria-label="03 FOUNDATIONS">
+<title>03 FOUNDATIONS</title>
+
+<defs>
+  <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0891B2"/><stop offset="0.5" stop-color="#7C3AED"/><stop offset="1" stop-color="#DB2777"/></linearGradient>
+  <linearGradient id="l" x1="0" x2="1"><stop offset="0" stop-color="#7C3AED" stop-opacity="0.8"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="6" y="30" width="16" height="16" fill="url(#g)" transform="rotate(45 14 38)">
+  <animateTransform attributeName="transform" type="rotate" values="45 14 38;225 14 38" dur="6s" repeatCount="indefinite"/>
+</rect>
+<text x="40" y="49" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="20" font-weight="700" fill="#0891B2">03</text>
+<text x="76" y="50" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="3" fill="url(#g)">FOUNDATIONS</text>
+<rect x="329" y="37" width="611" height="2" fill="url(#l)"/>
+<text x="1192" y="45" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" letter-spacing="1.5" fill="#64748B">// open-source lab collections</text>
+</svg>

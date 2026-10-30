@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="24" viewBox="0 0 1200 24" role="img" aria-label="divider">
+<title>divider</title>
+
+<defs><linearGradient id="d" x1="0" x2="1">
+  <stop offset="0" stop-color="#7C3AED" stop-opacity="0"/><stop offset="0.5" stop-color="#7C3AED"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+</linearGradient>
+<radialGradient id="p"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient></defs>
+<rect y="11" width="1200" height="2" fill="url(#d)"/>
+<ellipse cy="12" rx="90" ry="6" fill="url(#p)"><animate attributeName="cx" values="-100;1300" dur="4s" repeatCount="indefinite"/></ellipse>
+</svg>
